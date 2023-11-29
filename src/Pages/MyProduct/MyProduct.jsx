@@ -22,6 +22,8 @@ const MyProduct = () => {
             })
     }, [myAxios, user?.email])
 
+
+    
     const handleDelet = id => {
         myAxios.delete(`/tranding/${id}`)
         .then(res => {
