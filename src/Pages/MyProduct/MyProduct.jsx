@@ -4,6 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
 import { MdBrowserUpdated, MdOutlineDeleteForever } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 
@@ -24,7 +25,16 @@ const MyProduct = () => {
     const handleDelet = id => {
         myAxios.delete(`/tranding/${id}`)
         .then(res => {
-            res.data
+            if(res.data.deletedCount > 0 ){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your product successfully deleted",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  window.location.reload()
+            }
         })
     }
     return (
