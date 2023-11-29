@@ -20,6 +20,13 @@ const MyProduct = () => {
                setMyproducts(findEmail)
             })
     }, [myAxios, user?.email])
+
+    const handleDelet = id => {
+        myAxios.delete(`/tranding/${id}`)
+        .then(res => {
+            res.data
+        })
+    }
     return (
         <div>
             <h3>My Product</h3>
@@ -52,7 +59,8 @@ const MyProduct = () => {
                                 <td><button className="btn btn-outline btn-sm"><MdBrowserUpdated></MdBrowserUpdated> Update</button></td>
                                 <th>
 
-                                    <button
+                                    <button 
+                                        onClick={() => handleDelet (item._id)}
                                        
                                         className="btn btn-outline btn-sm"> <MdOutlineDeleteForever></MdOutlineDeleteForever>  Delete</button>
                                 </th>
