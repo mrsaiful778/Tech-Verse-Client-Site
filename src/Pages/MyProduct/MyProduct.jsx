@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { MdBrowserUpdated, MdOutlineDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -23,7 +24,7 @@ const MyProduct = () => {
     }, [myAxios, user?.email])
 
 
-    
+
     const handleDelet = id => {
         myAxios.delete(`/tranding/${id}`)
         .then(res => {
@@ -68,7 +69,13 @@ const MyProduct = () => {
                                 <td>
                                    <button className="btn btn-outline btn-warning btn-sm">Pending</button>
                                 </td>
-                                <td><button className="btn btn-outline btn-sm"><MdBrowserUpdated></MdBrowserUpdated> Update</button></td>
+                                <td>
+                                    
+                                   <Link to={`/dashboard/update/${item._id}`}>
+                                   <button className="btn btn-outline btn-sm"><MdBrowserUpdated></MdBrowserUpdated> Update</button>
+                                   </Link>
+                                    
+                                    </td>
                                 <th>
 
                                     <button 

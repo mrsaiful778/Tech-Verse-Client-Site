@@ -17,6 +17,7 @@ import AddHomeProduct from "../Pages/AddHomeProduct/AddHomeProduct";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 import Payment from "../Pages/Dashboard/MyProfile/Payment";
 import DashboardAdd from "../Pages/Dashboard/AddProducts/DashboardAdd";
+import UpdateProduct from "../Pages/MyProduct/UpdateProduct";
 
 
 
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
       {
         path: 'addProduct',
         element: <DashboardAdd></DashboardAdd>
+      },
+      {
+        path: 'update/:id',
+         element: <UpdateProduct></UpdateProduct>
       }
     ]
   }
