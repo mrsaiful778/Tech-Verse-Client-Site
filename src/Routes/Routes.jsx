@@ -18,6 +18,8 @@ import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 import Payment from "../Pages/Dashboard/MyProfile/Payment";
 import DashboardAdd from "../Pages/Dashboard/AddProducts/DashboardAdd";
 import UpdateProduct from "../Pages/MyProduct/UpdateProduct";
+import PrivateRoute from "./PrivateRouter";
+import StatisticsPage from "../Pages/Dashboard/AdminPages/StatisticsPage/StatisticsPage";
 
 
 
@@ -39,9 +41,9 @@ export const router = createBrowserRouter([
       },
       {
         path: '/productDetails/:id',
-        element: <ProductDetails></ProductDetails>
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
       },
-      
+
       {
         path: '/addHomeProduct',
         element: <AddHomeProduct></AddHomeProduct>
@@ -59,27 +61,32 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'myProfile',
-        element: <MyProfile></MyProfile>
+        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       },
       {
         path: 'payment',
-        element: <Payment></Payment>
+        element: <PrivateRoute> <Payment></Payment></PrivateRoute>
       },
       {
         path: 'myproducts',
-        element: <MyProduct></MyProduct>
+        element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>
       },
       {
         path: 'addProduct',
-        element: <DashboardAdd></DashboardAdd>
+        element: <PrivateRoute><DashboardAdd></DashboardAdd></PrivateRoute>
       },
       {
         path: 'update/:id',
-         element: <UpdateProduct></UpdateProduct>
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>
+      },
+      //admin route
+      {
+        path: 'statisticsPage',
+        element: <StatisticsPage></StatisticsPage>
       }
     ]
   }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import img from '../../assets/login.svg'
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -82,12 +82,12 @@ const Login = () => {
                 <title>Tech Verse | LogIn</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col md:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                       
-                    </div>
-                    <div className="card md:1/2 max-w-sm shadow-2xl bg-base-100">
+            <div className="hero-content flex-col lg:flex-row">
+                <div className="w-1/2 mr-12">
+                    <img src={img} alt="" />
+                </div>
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <h1 className="text-4xl font-bold text-center mr-2 mt-2">Login now</h1>
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -105,7 +105,7 @@ const Login = () => {
                             
                             <div className="form-control mt-6">
 
-                                <input  className="btn btn-primary" type="submit" value="Login" />
+                                <input  className="btn btn-accent" type="submit" value="Login" />
                             </div>
                         </form>
                         <p className='text-center pb-3'><small>New Here? <Link className="text-blue-600" to="/signup">sign in</Link></small></p>

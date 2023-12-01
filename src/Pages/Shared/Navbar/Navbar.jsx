@@ -1,10 +1,10 @@
 
-
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import useAdmin from "../../../Hook/useAdmin";
 
 
 
@@ -12,7 +12,8 @@ import Swal from "sweetalert2";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     // console.log(user);
-
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin);
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -44,7 +45,7 @@ const Navbar = () => {
         >
             Product
         </NavLink>
-        
+
 
         {/* <NavLink to="/dashboard/myProfile">
                 <button className="btn">
@@ -79,25 +80,39 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                       
-                       
-                      
+
+
+
                         <div className="dropdown dropdown-bottom dropdown-end">
                             <div tabIndex={0} role="button" className="btn m-1">
-                            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                                <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
                             </div>
                             <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
                                 <li>
-                                   <p className="text-center"> {user?.displayName}</p>
+                                    <p className="text-center"> {user?.displayName}</p>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard/myProfile">
+                                    {
+                                        isAdmin && user ? <Link to="/dashboard/statisticsPage">
+                                            <button >Dashboard</button>
+
+                                        </Link>
+                                            :
+                                           ''
+                                    }
+                                    {
+                                        !isAdmin && user ? 
+                                        <Link to="/dashboard/myProfile">
                                         <button >Dashboard</button>
                                     </Link>
+                                    :
+                                    ''
+
+                                    }
                                 </li>
-                               <li>
-                               <button  onClick={handleLogOut} >Logout</button>
-                               </li>
+                                <li>
+                                    <button onClick={handleLogOut} >Logout</button>
+                                </li>
                             </ul>
                         </div>
 

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import img from '../../assets/login.svg'
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -23,6 +24,7 @@ const SignUp = () => {
                         const userInfo = {
                             userName: data.name,
                             userEmasil: data.email,
+                            role: 'user',
                         }
                         // my axios
                         myAxios.post('/users', userInfo)
@@ -52,12 +54,12 @@ const SignUp = () => {
                 <title>Tech Verse | Sign Up</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">SignUp now!</h1>
-                       
-                    </div>
+            <div className="hero-content flex-col lg:flex-row">
+                <div className="w-1/2 mr-12">
+                    <img src={img} alt="" />
+                </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <h1 className="text-4xl font-bold text-center mr-2 mt-2">Sigin now</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -103,7 +105,7 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <input className="btn btn-accent" type="submit" value="Sign Up" />
                             </div>
                         </form>
                         <p className=" text-center px-6 pb-6"><small>Already have an account? <Link className="text-blue-700" to="/login">Login</Link></small></p>
