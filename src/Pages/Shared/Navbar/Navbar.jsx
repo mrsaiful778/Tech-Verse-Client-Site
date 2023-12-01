@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -15,7 +16,13 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log('logout successfully');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logout successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(error => console.log(error));
     }
@@ -73,7 +80,7 @@ const Navbar = () => {
                 {
                     user ? <>
                        
-                        <button className="btn btn-accent mx-3 " onClick={handleLogOut} >Logout</button>
+                       
                       
                         <div className="dropdown dropdown-bottom dropdown-end">
                             <div tabIndex={0} role="button" className="btn m-1">
@@ -81,13 +88,16 @@ const Navbar = () => {
                             </div>
                             <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
                                 <li>
-                                    {user?.displayName}
+                                   <p className="text-center"> {user?.displayName}</p>
                                 </li>
                                 <li>
                                     <Link to="/dashboard/myProfile">
-                                        Dashboard
+                                        <button >Dashboard</button>
                                     </Link>
                                 </li>
+                               <li>
+                               <button  onClick={handleLogOut} >Logout</button>
+                               </li>
                             </ul>
                         </div>
 

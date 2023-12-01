@@ -27,6 +27,11 @@ const Dashboard = () => {
                             <LiaOpencart ></LiaOpencart>
                                 My product</NavLink>
                         </li>
+                        <li> 
+                            <NavLink to="/">
+                            <LiaOpencart ></LiaOpencart>
+                                Home</NavLink>
+                        </li>
                        
                       
                     </ul>

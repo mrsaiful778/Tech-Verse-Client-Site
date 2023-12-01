@@ -4,9 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import useAxiosPublic from '../../Hook/useAxiosPublic';
 
 const SignUp = () => {
-
+    const myAxios = useAxiosPublic()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,33 +19,43 @@ const SignUp = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
-                .then(() => {
-                    console.log('user profile info update');
-                    reset();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "user profile info update",
-                        showConfirmButton: false,
-                        timer: 1500
-                      });
-                      navigate('/');
+                    .then(() => {
+                        const userInfo = {
+                            userName: data.name,
+                            userEmasil: data.email,
+                        }
+                        // my axios
+                        myAxios.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "user profile info update",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
 
-                })
-                .catch(error => console.log(error))
+
+                    })
+                    .catch(error => console.log(error))
             })
     }
 
     return (
         <>
             <Helmet>
-                <title>Bistro Boss | Sign Up</title>
+                <title>Tech Verse | Sign Up</title>
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">SignUp now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                       
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
