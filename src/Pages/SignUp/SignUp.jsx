@@ -23,7 +23,7 @@ const SignUp = () => {
                     .then(() => {
                         const userInfo = {
                             userName: data.name,
-                            userEmasil: data.email,
+                            userEmail: data.email,
                             role: 'user',
                         }
                         // my axios

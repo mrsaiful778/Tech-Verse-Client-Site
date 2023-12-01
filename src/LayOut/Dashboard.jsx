@@ -13,7 +13,9 @@ const Dashboard = () => {
                 <ul className="menu p-4">
 
 
-                    <li>
+                    {
+                        !isAdmin ? <>
+                        <li>
                         <NavLink to="/dashboard/myProfile">
                             <FaHome></FaHome>
                             My Profile </NavLink>
@@ -30,6 +32,13 @@ const Dashboard = () => {
                             <LiaOpencart ></LiaOpencart>
                             My product</NavLink>
                     </li>
+                        
+                        </>
+                        :
+                        ''
+
+                        
+                    }
 
 
 
@@ -45,7 +54,17 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/statisticsPage">
                                     <LiaOpencart ></LiaOpencart>
-                                    Statistics Page  </NavLink>
+                                    Statistics </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageUsers">
+                                    <LiaOpencart ></LiaOpencart>
+                                    Manage Users </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageCoupons">
+                                    <LiaOpencart ></LiaOpencart>
+                                    Manage Coupons </NavLink>
                             </li>
                         </>
                             :

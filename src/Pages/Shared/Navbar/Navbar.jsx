@@ -47,13 +47,7 @@ const Navbar = () => {
         </NavLink>
 
 
-        {/* <NavLink to="/dashboard/myProfile">
-                <button className="btn">
-                    <FaShoppingCart className="mr-2" />
-                    <div className="badge badge-secondary">+</div>
-                </button>
-
-            </NavLink> */}
+       
         {
             user ? '' : <li><NavLink to="/login">Login</NavLink></li>
         }
