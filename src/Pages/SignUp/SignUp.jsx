@@ -26,6 +26,8 @@ const SignUp = () => {
                             userEmail: data.email,
                             role: 'user',
                         }
+
+
                         // my axios
                         myAxios.post('/users', userInfo)
                             .then(res => {
@@ -58,6 +60,7 @@ const SignUp = () => {
                 <div className="w-1/2 mr-12">
                     <img src={img} alt="" />
                 </div>
+                
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <h1 className="text-4xl font-bold text-center mr-2 mt-2">Sigin now</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
