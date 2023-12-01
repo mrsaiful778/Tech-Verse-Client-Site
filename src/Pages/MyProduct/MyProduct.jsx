@@ -25,7 +25,7 @@ const MyProduct = () => {
 
 
 
-    const handleDelet = id => {
+    const handleDelete = id => {
         myAxios.delete(`/tranding/${id}`)
         .then(res => {
             if(res.data.deletedCount > 0 ){
@@ -79,7 +79,7 @@ const MyProduct = () => {
                                 <th>
 
                                     <button 
-                                        onClick={() => handleDelet (item._id)}
+                                        onClick={() => handleDelete (item._id)}
                                        
                                         className="btn btn-outline btn-sm"> <MdOutlineDeleteForever></MdOutlineDeleteForever>  Delete</button>
                                 </th>
