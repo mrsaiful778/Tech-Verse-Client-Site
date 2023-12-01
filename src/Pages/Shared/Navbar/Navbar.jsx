@@ -1,10 +1,11 @@
 
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import useAdmin from "../../../Hook/useAdmin";
+import useModarator from "../../../Hook/useModerator";
 
 
 
@@ -13,7 +14,9 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     // console.log(user);
     const [isAdmin] = useAdmin()
-    console.log(isAdmin);
+    const [isModarator] = useModarator()
+    console.log(isModarator);
+
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -47,7 +50,7 @@ const Navbar = () => {
         </NavLink>
 
 
-       
+
         {
             user ? '' : <li><NavLink to="/login">Login</NavLink></li>
         }
@@ -87,20 +90,29 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     {
-                                        isAdmin && user ? <Link to="/dashboard/statisticsPage">
+                                        isAdmin && user && !isModarator ? <Link to="/dashboard/statisticsPage">
                                             <button >Dashboard</button>
 
                                         </Link>
                                             :
-                                           ''
+                                            ''
                                     }
                                     {
-                                        !isAdmin && user ? 
-                                        <Link to="/dashboard/myProfile">
-                                        <button >Dashboard</button>
-                                    </Link>
-                                    :
-                                    ''
+                                        !isAdmin && user && !isModarator ?
+                                            <Link to="/dashboard/myProfile">
+                                                <button >Dashboard</button>
+                                            </Link>
+                                            :
+                                            ''
+
+                                    }
+                                    {
+                                        !isAdmin && user && isModarator ?
+                                            <Link to="/dashboard/productReview">
+                                                <button >Dashboard</button>
+                                            </Link>
+                                            :
+                                            ''
 
                                     }
                                 </li>

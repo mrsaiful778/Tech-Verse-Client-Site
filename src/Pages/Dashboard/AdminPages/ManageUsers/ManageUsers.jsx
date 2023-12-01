@@ -18,9 +18,9 @@ const ManageUsers = () => {
     // console.log(allUser);
     const { data: allUser, refetch } = useQuery({
         queryKey: ['king'],
-        queryFn: async() => {
+        queryFn: async () => {
             const res = await myAxios.get('/users')
-            
+
             return res.data;
 
 
@@ -84,7 +84,11 @@ const ManageUsers = () => {
                                 </td>
                                 <td className="text-center">{user.userEmail}</td>
                                 <td className="text-center">
-                                    <button onClick={() => handleModaretor(user._id)} className="btn btn-outline btn-success btn-md">Modaretor</button>
+                                    {
+                                        user.role == 'moderator' ? <button  className="btn btn-outline btn-success btn-md">Already Moderator</button>
+                                        :
+                                        <button onClick={() => handleModaretor(user._id)} className="btn btn-outline btn-success btn-md">Modaretor</button>
+                                   }
                                 </td>
                                 <td>
 

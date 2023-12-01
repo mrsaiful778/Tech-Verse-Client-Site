@@ -22,6 +22,8 @@ import PrivateRoute from "./PrivateRouter";
 import StatisticsPage from "../Pages/Dashboard/AdminPages/StatisticsPage/StatisticsPage";
 import ManageUsers from "../Pages/Dashboard/AdminPages/ManageUsers/ManageUsers";
 import ManageCoupons from "../Pages/Dashboard/AdminPages/ManageCoupons/ManageCoupons";
+import ProductReview from "../Pages/Dashboard/ModaratorPages/ProductReview/ProductReview";
+import ReportedContents from "../Pages/Dashboard/ModaratorPages/ReportedContents/ReportedContents";
 
 
 
@@ -97,6 +99,15 @@ export const router = createBrowserRouter([
       {
         path: 'manageCoupons',
         element: <ManageCoupons></ManageCoupons>
+      },
+      //modarator
+      {
+        path: 'productReview',
+        element: <ProductReview></ProductReview>
+      },
+      {
+        path: 'reportedContents',
+        element: <ReportedContents></ReportedContents>
       }
     ]
   }

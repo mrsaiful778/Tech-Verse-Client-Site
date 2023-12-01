@@ -3,14 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import '@smastrom/react-rating/style.css'
-import { Rating } from '@smastrom/react-rating';
+
 
 
 
 const ProductDetails = () => {
     const [allProduct, setAllProduct] = useState([])
-    const [reviews, setReviews] = useState([])
+   
     const { user } = useContext(AuthContext)
     const myAxios = useAxiosPublic();
     const { id } = useParams()
@@ -58,12 +57,7 @@ const ProductDetails = () => {
 
     }
 
-    useEffect(() => {
-        myAxios.get('/review')
-            .then(res => {
-                setReviews(res?.data)
-            })
-    }, [myAxios])
+   
 
     const handlePollUp = (details) => {
         
@@ -143,24 +137,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
-            {/* review part */}
-            <div className="py-5">
-                {
-                    reviews.map(review => <div key={review._id}>
-                       <div className="bg-slate-100 shadow-md rounded-lg w-96 ">
-                        <img className="w-24 h-24 rounded-full m-5 flex justify-center items-center" src={review.image} alt="" />
-                        <div className=" text-center ">
-                        <div className="flex text-5xl text-[#CD9003]"><Rating
-                                    style={{ maxWidth: 180 }}
-                                    value={review?.rating}
-                                    readOnly
-                                /></div> 
-                            <p>{review.description}</p>
-                        </div>
-                       </div>
-                    </div>)
-                }
-            </div>
+          
             {/* review form part  */}
             <div className="max-w-screen-lg  mx-auto  p-5 rounded-lg pb-5">
                 <form onSubmit={handleReview} className="max-w-screen-md mx-auto">
