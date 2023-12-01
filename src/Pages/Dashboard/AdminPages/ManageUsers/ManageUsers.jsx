@@ -1,19 +1,64 @@
 import { useState } from "react";
 import useAxiosPublic from "../../../../Hook/useAxiosPublic";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 
 
 const ManageUsers = () => {
     const myAxios = useAxiosPublic()
-    const [allUser, setAllUser] = useState([])
-    useEffect(() => {
-        myAxios.get('/users')
+    // const [allUser, setAllUser] = useState([])
+    // useEffect(() => {
+    //     myAxios.get('/users')
+    //         .then(res => {
+    //             const allData = res.data
+    //             setAllUser(allData)
+    //         })
+    // }, [myAxios])
+    // console.log(allUser);
+    const { data: allUser, refetch } = useQuery({
+        queryKey: ['king'],
+        queryFn: async() => {
+            const res = await myAxios.get('/users')
+            
+            return res.data;
+
+
+        }
+    })
+
+    const handleModaretor = (id) => {
+
+        myAxios.patch(`/users/moderator/${id}`)
             .then(res => {
-                const allData = res.data
-                setAllUser(allData)
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Moderator Promotion Successfully ",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
             })
-    }, [myAxios])
-    console.log(allUser);
+    }
+
+    const handleAdmin = (id) => {
+        myAxios.patch(`/users/admin/${id}`)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Admin Promotion Successfully ",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
+    }
     return (
         <div>
             <div className="overflow-x-auto">
@@ -21,7 +66,7 @@ const ManageUsers = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                           
+
                             <th><span className="text-3xl font-medium">User Name</span></th>
                             <th><span className="text-3xl font-medium">User Email</span></th>
                             <th><span className="text-3xl font-medium">Make Moderator</span></th>
@@ -29,47 +74,39 @@ const ManageUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                       {
-                        allUser.map(user => <tr key={user._id}>
-                           
-                            {/* <td>
-                                <div className="flex items-center gap-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold"></div>
-                                        <div className="text-sm opacity-50">United States</div>
-                                    </div>
-                                </div>
-                            </td> */}
-                            <td>
-                               {user.userName}
-                                
-                            </td>
-                            <td>{user.userEmail}</td>
-                            <th>
-                                <button className="btn btn-outline btn-success btn-md">Modaretor</button>
-                            </th>
-                            <td>
-                               
-                            <button className="btn btn-outline btn-success btn-md">Admin</button>
-                            </td>
-                          
-                            
-                        </tr>)
-                       }
+                        {
+                            allUser?.map(user => <tr key={user._id}>
 
-                        
-                      
-                       
-                       
-                        
+
+                                <td className="text-center">
+                                    {user.userName}
+
+                                </td>
+                                <td className="text-center">{user.userEmail}</td>
+                                <td className="text-center">
+                                    <button onClick={() => handleModaretor(user._id)} className="btn btn-outline btn-success btn-md">Modaretor</button>
+                                </td>
+                                <td>
+
+                                    {
+                                        user.role == 'admin' ? <button className="btn btn-outline btn-success btn-md">Already Admin</button>
+                                            :
+                                            <button onClick={() => handleAdmin(user._id)} className="btn btn-outline btn-success btn-md">Admin</button>
+                                    }
+                                </td>
+
+
+                            </tr>)
+                        }
+
+
+
+
+
+
                     </tbody>
-                    
-                  
+
+
 
                 </table>
             </div>
