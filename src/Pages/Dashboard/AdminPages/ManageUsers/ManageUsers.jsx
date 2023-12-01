@@ -21,22 +21,18 @@ const ManageUsers = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                           
+                            <th><span className="text-3xl font-medium">User Name</span></th>
+                            <th><span className="text-3xl font-medium">User Email</span></th>
+                            <th><span className="text-3xl font-medium">Make Moderator</span></th>
+                            <th><span className="text-3xl font-medium">Make Admin</span></th>
                         </tr>
                     </thead>
                     <tbody>
                        {
                         allUser.map(user => <tr key={user._id}>
                            
-                            <td>
+                            {/* <td>
                                 <div className="flex items-center gap-3">
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
@@ -48,16 +44,21 @@ const ManageUsers = () => {
                                         <div className="text-sm opacity-50">United States</div>
                                     </div>
                                 </div>
-                            </td>
+                            </td> */}
                             <td>
-                                Zemlak, Daniel and Leannon
-                                <br />
-                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                               {user.userName}
+                                
                             </td>
-                            <td>Purple</td>
+                            <td>{user.userEmail}</td>
                             <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <button className="btn btn-outline btn-success btn-md">Modaretor</button>
                             </th>
+                            <td>
+                               
+                            <button className="btn btn-outline btn-success btn-md">Admin</button>
+                            </td>
+                          
+                            
                         </tr>)
                        }
 
