@@ -3,6 +3,7 @@ import { useState } from "react";
 import useAxiosPublic from "../../../../Hook/useAxiosPublic";
 import '@smastrom/react-rating/style.css'
 import { Rating } from '@smastrom/react-rating';
+import { Link } from "react-router-dom";
 
 
 const ProductReview = () => {
@@ -14,25 +15,67 @@ const ProductReview = () => {
                 setReviews(res?.data)
             })
     }, [myAxios])
+
+    const handleAccepted = (id) =>{
+        console.log(id);
+    }
     return (
         <div>
             {/* review part */}
-            <div className="grid lg:grid-cols-2 gap-10 max-w-screen-md mx-auto">
-                {
-                    reviews?.map(review => <div key={review._id}>
-                        <div className="bg-slate-100 shadow-md rounded-lg w-96 ">
-                            <img className="w-24 h-24 rounded-full m-5 flex justify-center items-center" src={review.image} alt="" />
-                            <div className=" text-center ">
-                                <div className="flex text-5xl text-[#CD9003]"><Rating
-                                    style={{ maxWidth: 180 }}
-                                    value={review?.rating}
-                                    readOnly
-                                /></div>
-                                <p>{review.description}</p>
-                            </div>
-                        </div>
-                    </div>)
-                }
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr>
+
+                            <th><span className="text-3xl font-medium">Product Name</span></th>
+                            <th><span className="text-3xl font-medium">View Details</span></th>
+                            <th><span className="text-3xl font-medium">Make Featured</span></th>
+                            <th><span className="text-3xl font-medium">Accepted</span></th>
+                            <th><span className="text-3xl font-medium">Rejected</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            reviews?.map(user => <tr key={user._id}>
+
+                                <td className="text-center">
+                                    {user?.productName}
+
+                                </td>
+                                
+                                <td className="text-center">
+                                    <Link to={`/productDetails/${user?.productId}`}>
+                                    <button className="btn btn-accent btn-outline btn-md">View Details</button>
+                                    </Link>
+                                </td>
+                                <td>
+                                <button className="btn btn-accent btn-outline btn-md">Featured</button>
+                                   
+                                </td>
+                                <td>
+                                <button onClick={() => handleAccepted (user._id)} className="btn btn-accent btn-outline btn-md"> Accepted</button>
+                                   
+                                </td>
+                                <td>
+                                <button className="btn btn-accent btn-outline btn-md"> Rejected</button>
+                                   
+                                </td>
+
+
+                            </tr>)
+                        }
+
+
+
+
+
+
+                    </tbody>
+
+
+
+                </table>
             </div>
         </div>
     );

@@ -1,6 +1,12 @@
 import { FaHome, FaProductHunt, FaShoppingCart } from "react-icons/fa";
 import { GiMilkCarton } from "react-icons/gi";
 import { LiaOpencart } from "react-icons/lia";
+import { GoCodeReview } from "react-icons/go";
+import { MdProductionQuantityLimits, MdReportOff } from "react-icons/md";
+import { RiCoupon3Line } from "react-icons/ri";
+import { FcManager } from "react-icons/fc";
+import { FcStatistics } from "react-icons/fc";
+import { CgProfile } from "react-icons/cg";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hook/useAdmin";
 import useModarator from "../Hook/useModerator";
@@ -22,7 +28,7 @@ const Dashboard = () => {
                         !isAdmin && !isModarator && user ? <>
                             <li>
                                 <NavLink to="/dashboard/myProfile">
-                                    <FaHome></FaHome>
+                                    <CgProfile></CgProfile>
                                     My Profile </NavLink>
                             </li>
 
@@ -34,7 +40,7 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink to="/dashboard/myproducts">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <MdProductionQuantityLimits  ></MdProductionQuantityLimits >
                                     My product</NavLink>
                             </li>
 
@@ -58,17 +64,17 @@ const Dashboard = () => {
                         user && isAdmin && !isModarator ? <>
                             <li>
                                 <NavLink to="/dashboard/statisticsPage">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <FcStatistics ></FcStatistics>
                                     Statistics </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/manageUsers">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <FcManager ></FcManager>
                                     Manage Users </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/manageCoupons">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <RiCoupon3Line ></RiCoupon3Line>
                                     Manage Coupons </NavLink>
                             </li>
                         </>
@@ -84,12 +90,12 @@ const Dashboard = () => {
 
                             <li>
                                 <NavLink to="/dashboard/productReview">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <GoCodeReview ></GoCodeReview>
                                     Product Review </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/reportedContents">
-                                    <LiaOpencart ></LiaOpencart>
+                                    <MdReportOff ></MdReportOff>
                                     Reported Contents</NavLink>
                             </li>
 
