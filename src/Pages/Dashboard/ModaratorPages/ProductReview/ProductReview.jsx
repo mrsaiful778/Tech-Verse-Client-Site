@@ -16,7 +16,7 @@ const ProductReview = () => {
             })
     }, [myAxios])
 
-    const handleAccepted = (id) =>{
+    const handleAccepted = (id) => {
         console.log(id);
     }
     return (
@@ -40,26 +40,26 @@ const ProductReview = () => {
                             reviews?.map(user => <tr key={user._id}>
 
                                 <td className="text-center">
-                                    {user?.productName}
+                                    <p className="text-xl">{user?.productName}</p>
 
                                 </td>
-                                
+
                                 <td className="text-center">
                                     <Link to={`/productDetails/${user?.productId}`}>
-                                    <button className="btn btn-accent btn-outline btn-md">View Details</button>
+                                        <button className="btn btn-accent btn-outline btn-md">View Details</button>
                                     </Link>
                                 </td>
-                                <td>
-                                <button className="btn btn-accent btn-outline btn-md">Featured</button>
-                                   
+                                <td className="text-center">
+                                    <button className="btn btn-accent btn-outline btn-md">Featured</button>
+
                                 </td>
-                                <td>
-                                <button onClick={() => handleAccepted (user._id)} className="btn btn-accent btn-outline btn-md"> Accepted</button>
-                                   
+                                <td className="text-center">
+                                    <button onClick={() => handleAccepted(user._id)} className="btn btn-accent btn-outline btn-md"> Accepted</button>
+
                                 </td>
-                                <td>
-                                <button className="btn btn-accent btn-outline btn-md"> Rejected</button>
-                                   
+                                <td className="text-center">
+                                    <button className="btn btn-accent btn-outline btn-md"> Rejected</button>
+
                                 </td>
 
 
