@@ -20,7 +20,11 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
     return (
         <div className="flex">
+<<<<<<< HEAD
             <div className="w-64 min-h-screen  bg-[#9d4697]">
+=======
+            <div className="w-64 min-h-screen  bg-[#00ABA9]">
+>>>>>>> e0430d62e198a8a2c8aea09c115f683627be4e47
                 <ul className="menu p-4">
 
 

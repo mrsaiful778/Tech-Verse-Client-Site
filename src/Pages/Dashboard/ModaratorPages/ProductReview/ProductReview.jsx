@@ -39,11 +39,16 @@ const ProductReview = () => {
                         {
                             reviews?.map(user => <tr key={user._id}>
 
+<<<<<<< HEAD
                                 <td className="text-center bg-slate-200">
+=======
+                                <td className="text-center">
+>>>>>>> e0430d62e198a8a2c8aea09c115f683627be4e47
                                     <p className="text-xl">{user?.productName}</p>
 
                                 </td>
 
+<<<<<<< HEAD
                                 <td className="text-center bg-slate-200">
                                     <Link to={`/productDetails/${user?.productId}`}>
                                         <button className="btn bg-[#9d4697] btn-outline btn-md text-white">View Details</button>
@@ -59,6 +64,23 @@ const ProductReview = () => {
                                 </td>
                                 <td className="text-center bg-slate-200">
                                     <button className="btn bg-[#9d4697] btn-outline btn-md text-white"> Rejected</button>
+=======
+                                <td className="text-center">
+                                    <Link to={`/productDetails/${user?.productId}`}>
+                                        <button className="btn btn-accent btn-outline btn-md">View Details</button>
+                                    </Link>
+                                </td>
+                                <td className="text-center">
+                                    <button className="btn btn-accent btn-outline btn-md">Featured</button>
+
+                                </td>
+                                <td className="text-center">
+                                    <button onClick={() => handleAccepted(user._id)} className="btn btn-accent btn-outline btn-md"> Accepted</button>
+
+                                </td>
+                                <td className="text-center">
+                                    <button className="btn btn-accent btn-outline btn-md"> Rejected</button>
+>>>>>>> e0430d62e198a8a2c8aea09c115f683627be4e47
 
                                 </td>
 

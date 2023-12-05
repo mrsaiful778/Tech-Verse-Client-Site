@@ -31,7 +31,11 @@ const TrandingProduct = () => {
                                 </figure>
                             <div className="card-body bg-base-100  rounded-b">
                                 <h2 className="card-title">
+<<<<<<< HEAD
                                 {item.name}
+=======
+                                {item.productName}
+>>>>>>> e0430d62e198a8a2c8aea09c115f683627be4e47
                                     <div className="badge badge-secondary">NEW</div>
                                 </h2>
                                 <p><span className="text-xl font-semibold">Peice:</span> ${item.price}</p>
