@@ -79,8 +79,8 @@ const Featured = () => {
                                     <p>{item?.tags}</p>
                                     
                                 </div>
-                                <div className="flex justify-between py-2 px-4">
-                                    <button className="btn btn-outline btn-success btn-xs" onClick={() => handlePollUp(item)}>
+                                <div className="flex justify-between py-2 px-4 ">
+                                    <button className="btn btn-outline bg-[#9d4697] btn-xs text-white" onClick={() => handlePollUp(item)}>
                                     <GiVote></GiVote> up vote <p>{item.upVote} </p>
                                     </button>
                                     

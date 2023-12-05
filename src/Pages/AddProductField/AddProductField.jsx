@@ -59,7 +59,7 @@ const AddProductField = () => {
             </div>
             
             <textarea className='bg-blue-200 py-2 w-full rounded-lg px-2 ' placeholder='Description' name="" id="" cols="20" ></textarea>
-            <button type='submit' className='btn bg-[#78eaea] text-white hover:text-black w-full mt-5'>Add product</button>
+            <button type='submit' className='btn bg-[#9d4697] text-white hover:text-black w-full mt-5'>Add product</button>
         </form>
     </div>
     );

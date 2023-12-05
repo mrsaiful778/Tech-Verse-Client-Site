@@ -106,7 +106,7 @@ const Login = () => {
                             
                             <div className="form-control mt-6">
 
-                                <input  className="btn btn-accent" type="submit" value="Login" />
+                                <input  className="btn bg-[#9d4697]" type="submit" value="Login" />
                             </div>
                         </form>
                         <p className='text-center pb-3'><small>New Here? <Link className="text-blue-600" to="/signup">sign in</Link></small></p>

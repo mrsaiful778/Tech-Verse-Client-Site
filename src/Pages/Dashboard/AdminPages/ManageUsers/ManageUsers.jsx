@@ -65,7 +65,7 @@ const ManageUsers = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-black bg-slate-200">
 
                             <th><span className="text-3xl font-medium">User Name</span></th>
                             <th><span className="text-3xl font-medium">User Email</span></th>
@@ -78,24 +78,24 @@ const ManageUsers = () => {
                             allUser?.map(user => <tr key={user._id}>
 
 
-                                <td className="text-center">
+                                <td className="text-center bg-slate-200">
                                     {user.userName}
 
                                 </td>
-                                <td className="text-center">{user.userEmail}</td>
-                                <td className="text-center">
+                                <td className="text-center bg-slate-200">{user.userEmail}</td>
+                                <td className="text-center bg-slate-200">
                                     {
-                                        user.role == 'moderator' ? <button  className="btn btn-outline btn-success btn-md">Already Moderator</button>
+                                        user.role == 'moderator' ? <button  className="btn btn-outline bg-[#9d4697] btn-md text-white">Already Moderator</button>
                                         :
-                                        <button onClick={() => handleModaretor(user._id)} className="btn btn-outline btn-success btn-md">Modaretor</button>
+                                        <button onClick={() => handleModaretor(user._id)} className="btn btn-outline bg-[#9d4697] btn-md text-white">Modaretor</button>
                                    }
                                 </td>
-                                <td>
+                                <td className="bg-slate-200 text-center">
 
                                     {
-                                        user.role == 'admin' ? <button className="btn btn-outline btn-success btn-md">Already Admin</button>
+                                        user.role == 'admin' ? <button className="btn btn-outline bg-[#9d4697] btn-md text-white">Already Admin</button>
                                             :
-                                            <button onClick={() => handleAdmin(user._id)} className="btn btn-outline btn-success btn-md">Admin</button>
+                                            <button onClick={() => handleAdmin(user._id)} className="btn btn-outline bg-[#9d4697] btn-md text-white">Admin</button>
                                     }
                                 </td>
 

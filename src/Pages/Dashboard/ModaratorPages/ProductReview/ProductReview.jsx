@@ -16,7 +16,7 @@ const ProductReview = () => {
             })
     }, [myAxios])
 
-    const handleAccepted = (id) =>{
+    const handleAccepted = (id) => {
         console.log(id);
     }
     return (
@@ -26,7 +26,7 @@ const ProductReview = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="bg-slate-200 text-black">
 
                             <th><span className="text-3xl font-medium">Product Name</span></th>
                             <th><span className="text-3xl font-medium">View Details</span></th>
@@ -39,27 +39,27 @@ const ProductReview = () => {
                         {
                             reviews?.map(user => <tr key={user._id}>
 
-                                <td className="text-center">
-                                    {user?.productName}
+                                <td className="text-center bg-slate-200">
+                                    <p className="text-xl">{user?.productName}</p>
 
                                 </td>
-                                
-                                <td className="text-center">
+
+                                <td className="text-center bg-slate-200">
                                     <Link to={`/productDetails/${user?.productId}`}>
-                                    <button className="btn btn-accent btn-outline btn-md">View Details</button>
+                                        <button className="btn bg-[#9d4697] btn-outline btn-md text-white">View Details</button>
                                     </Link>
                                 </td>
-                                <td>
-                                <button className="btn btn-accent btn-outline btn-md">Featured</button>
-                                   
+                                <td className="text-center bg-slate-200">
+                                    <button className="btn bg-[#9d4697] btn-outline btn-md text-white">Featured</button>
+
                                 </td>
-                                <td>
-                                <button onClick={() => handleAccepted (user._id)} className="btn btn-accent btn-outline btn-md"> Accepted</button>
-                                   
+                                <td className="text-center bg-slate-200">
+                                    <button onClick={() => handleAccepted(user._id)} className="btn bg-[#9d4697] btn-outline btn-md text-white"> Accepted</button>
+
                                 </td>
-                                <td>
-                                <button className="btn btn-accent btn-outline btn-md"> Rejected</button>
-                                   
+                                <td className="text-center bg-slate-200">
+                                    <button className="btn bg-[#9d4697] btn-outline btn-md text-white"> Rejected</button>
+
                                 </td>
 
 

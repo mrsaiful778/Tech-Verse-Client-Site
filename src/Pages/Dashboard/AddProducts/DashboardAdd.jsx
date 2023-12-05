@@ -44,7 +44,7 @@ const DashboardAdd = () => {
         <div>
             <div className="mt-32 space-y-2">
                 <h2 className="text-4xl font-semibold text-center py-2">Add Product</h2>
-            <form onSubmit={myProducts} className="bg-slate-300 max-w-screen-md mx-auto p-10 rounded-md">
+            <form onSubmit={myProducts} className="bg-[#9d4697] max-w-screen-md mx-auto p-10 rounded-md">
 
                 <input className="p-3 mt-2 py-3 border-2 border-black w-full rounded-md" placeholder="Product name" type="text" name="productName" required /> <br />
 
@@ -61,7 +61,7 @@ const DashboardAdd = () => {
 
                 <textarea className="p-3 mt-2 py-3 border-2 border-black w-full rounded-md" name="description" id="" cols="30" placeholder="description" required ></textarea>
 
-                <input className="btn btn-accent w-full rounded-md space-y-2" type="submit" value="Submit" />
+                <input className="btn bg-[#9d4697] w-full rounded-md space-y-2" type="submit" value="Submit" />
             </form>
 
         </div>

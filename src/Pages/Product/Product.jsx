@@ -5,7 +5,7 @@ const Product = () => {
     return (
         <div>
            
-           <h2>all product </h2>
+           <h2></h2>
 
             
          

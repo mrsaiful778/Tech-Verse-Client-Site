@@ -154,7 +154,7 @@ const ProductDetails = () => {
                     <input className='border-2 py-2 w-full rounded-lg px-2 ' type="text" name="image" defaultValue={user?.photoURL} readOnly /> <br />
                     <input className='border-2 py-2 w-full rounded-lg px-2 ' type="text" name="rating" placeholder="Rating" /> <br />
                     <textarea className="border-2 py-2 w-full rounded-lg px-2" name="description" id="" cols="30"></textarea> <br />
-                    <button type="submit" className="btn btn-outline btn-success">Submit</button>
+                    <button type="submit" className="btn btn-outline bg-[#9d4697]">Submit</button>
 
                 </form>
             </div>

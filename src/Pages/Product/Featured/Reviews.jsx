@@ -6,9 +6,9 @@ import { Rating } from "@smastrom/react-rating";
 
 const Reviews = () => {
     const myAxios = useAxiosPublic()
-    const {data = [] } = useQuery({
+    const { data = [] } = useQuery({
         queryKey: ['reviewShow'],
-        queryFn: async() => {
+        queryFn: async () => {
             const res = await myAxios.get('/review')
             return res.data;
         }
@@ -21,7 +21,7 @@ const Reviews = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {
                     data?.map(item => <div key={item._id}>
-                         <div className="card card-compact bg-base-100 shadow-xl">
+                        <div className="card card-compact bg-base-100 shadow-xl">
                             <figure> <img className="w-24 h-24 rounded-full m-5 flex justify-center items-center" src={item.image} alt="" /></figure>
                             <div className="card-body">
                                 <h2 className="text-xl text-center font-medium mb-3">{item.name}</h2>
@@ -34,11 +34,11 @@ const Reviews = () => {
                                     <p className="text-start p-5 mt-3 bg-slate-200">description: {item.description}</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                   
+
                                 </div>
                             </div>
                         </div>
-                        </div>)
+                    </div>)
                 }
             </div>
         </div>

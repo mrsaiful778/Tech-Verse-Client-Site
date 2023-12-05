@@ -27,7 +27,7 @@ const MyProfile = () => {
 
             </div>
             <Link to="/dashboard/payment">
-              <button className=" text-white flex justify-between items-center w-3/12 btn btn-accent">Membership Subscribe<p> $50</p> </button>
+              <button className=" text-white flex justify-between items-center w-3/12 btn bg-[#9d4697]">Membership Subscribe<p> $50</p> </button>
             </Link>
       
         </div>

@@ -108,7 +108,7 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-accent" type="submit" value="Sign Up" />
+                                <input className="btn bg-[#9d4697]" type="submit" value="Sign Up" />
                             </div>
                         </form>
                         <p className=" text-center px-6 pb-6"><small>Already have an account? <Link className="text-blue-700" to="/login">Login</Link></small></p>

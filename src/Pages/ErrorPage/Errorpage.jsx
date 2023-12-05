@@ -10,7 +10,7 @@ const Errorpage = () => {
             
             <div>
                 <Link to="/">
-                <button className='btn btn-accent'> Go to home</button>
+                <button className='btn bg-[#9d4697]'> Go to home</button>
                 </Link>
             </div>
             </div>

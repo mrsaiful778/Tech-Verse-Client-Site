@@ -6,7 +6,7 @@ const Payment = () => {
             <div className="container mx-auto p-4">
                 <h2 className="text-3xl font-bold">Payment Page</h2>
                 <div>
-                    <button className='btn btn-accent'>Pay</button>
+                    <button className='btn bg-[#9d4697]'>Pay</button>
                 </div>
             </div>
         </div>

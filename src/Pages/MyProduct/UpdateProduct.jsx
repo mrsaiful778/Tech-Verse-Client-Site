@@ -71,7 +71,7 @@ const UpdateProduct = () => {
 
                     <textarea className="p-3 mt-2 py-3 border-2 border-black w-full rounded-md" name="description" id="" cols="30" defaultValue={details?.description}></textarea>
 
-                    <input className="btn btn-accent w-full rounded-md space-y-2" type="submit" value="Submit" />
+                    <input className="btn bg-[#9d4697] w-full rounded-md space-y-2" type="submit" value="Submit" />
                 </form>
 
             </div>

@@ -35,7 +35,7 @@ const Navbar = () => {
         <NavLink
             to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-lg text-black hover:text-white bg-[#66c6f3] font-medium py-2 px-4 lg:px-6 rounded-lg" : ""
+                isPending ? "pending" : isActive ? "text-lg text-black hover:text-white bg-[#9d4697] font-medium py-2 px-4 lg:px-6 rounded-lg" : ""
             }
         >
             Home
@@ -43,7 +43,7 @@ const Navbar = () => {
         <NavLink
             to="/product"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-lg text-black hover:text-white bg-[#66c6f3] font-medium py-2 px-4 lg:px-6 rounded-lg" : ""
+                isPending ? "pending" : isActive ? "text-lg text-black hover:text-white bg-[#9d4697] font-medium py-2 px-4 lg:px-6 rounded-lg" : ""
             }
         >
             Product
@@ -67,7 +67,7 @@ const Navbar = () => {
                         {NavSection}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl hidden md:block"><img className="w-44 h-7" src="https://i.ibb.co/0hB0Dc2/Tech-Verse-3-1-e1692190492434.png" alt="" /></a>
+                <a className="btn btn-ghost text-xl hidden md:block items-center"><img className="w-44 h-7" src="https://i.ibb.co/3F9hs1C/images.png" alt="" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex items-center gap-10">

@@ -15,11 +15,11 @@ const MyProduct = () => {
 
     const myAxios = useAxiosPublic()
     useEffect(() => {
-            myAxios.get('/tranding')
+        myAxios.get('/tranding')
             .then(res => {
                 const alldata = res.data
-               const findEmail = alldata.filter(item => item?.ownerEmail == user?.email )
-               setMyproducts(findEmail)
+                const findEmail = alldata.filter(item => item?.ownerEmail == user?.email)
+                setMyproducts(findEmail)
             })
     }, [myAxios, user?.email])
 
@@ -27,18 +27,18 @@ const MyProduct = () => {
 
     const handleDelete = id => {
         myAxios.delete(`/tranding/${id}`)
-        .then(res => {
-            if(res.data.deletedCount > 0 ){
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your product successfully deleted",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                  window.location.reload()
-            }
-        })
+            .then(res => {
+                if (res.data.deletedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your product successfully deleted",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    window.location.reload()
+                }
+            })
     }
     return (
         <div>
@@ -48,7 +48,7 @@ const MyProduct = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                           
+
                             <th>Product Name</th>
                             <th>Number of votes</th>
                             <th>Status</th>
@@ -64,23 +64,23 @@ const MyProduct = () => {
                                     {item?.productName}
                                 </th>
                                 <td>
-                                   0
+                                    0
                                 </td>
                                 <td>
-                                   <button className="btn btn-outline btn-warning btn-sm">Pending</button>
+                                   <h3 className="text-lg font-semibold">Pending</h3>
                                 </td>
                                 <td>
-                                    
-                                   <Link to={`/dashboard/update/${item._id}`}>
-                                   <button className="btn btn-outline btn-sm"><MdBrowserUpdated></MdBrowserUpdated> Update</button>
-                                   </Link>
-                                    
-                                    </td>
+
+                                    <Link to={`/dashboard/update/${item._id}`}>
+                                        <button className="btn btn-outline btn-sm"><MdBrowserUpdated></MdBrowserUpdated> Update</button>
+                                    </Link>
+
+                                </td>
                                 <th>
 
-                                    <button 
-                                        onClick={() => handleDelete (item._id)}
-                                       
+                                    <button
+                                        onClick={() => handleDelete(item._id)}
+
                                         className="btn btn-outline btn-sm"> <MdOutlineDeleteForever></MdOutlineDeleteForever>  Delete</button>
                                 </th>
                             </tr>)

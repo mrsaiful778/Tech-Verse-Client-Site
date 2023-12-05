@@ -2,7 +2,7 @@ import { FaHome, FaProductHunt, FaShoppingCart } from "react-icons/fa";
 import { GiMilkCarton } from "react-icons/gi";
 import { LiaOpencart } from "react-icons/lia";
 import { GoCodeReview } from "react-icons/go";
-import { MdProductionQuantityLimits, MdReportOff } from "react-icons/md";
+import { MdAddHomeWork, MdProductionQuantityLimits, MdReportOff } from "react-icons/md";
 import { RiCoupon3Line } from "react-icons/ri";
 import { FcManager } from "react-icons/fc";
 import { FcStatistics } from "react-icons/fc";
@@ -20,7 +20,7 @@ const Dashboard = () => {
     const { user } = useContext(AuthContext);
     return (
         <div className="flex">
-            <div className="w-64 min-h-screen bg-blue-500">
+            <div className="w-64 min-h-screen  bg-[#9d4697]">
                 <ul className="menu p-4">
 
 
@@ -117,7 +117,7 @@ const Dashboard = () => {
 
                     <li>
                         <NavLink to="/">
-                            <LiaOpencart ></LiaOpencart>
+                            <MdAddHomeWork  ></MdAddHomeWork >
                             Home</NavLink>
                     </li>
 

@@ -24,7 +24,7 @@ const AddHomeProduct = () => {
 
     return (
         <div className="mt-32 space-y-2">
-            <form onSubmit={handleFeature} className="bg-slate-300 max-w-screen-md mx-auto p-10">
+            <form onSubmit={handleFeature} className="bg-[#9d4697] max-w-screen-md mx-auto p-10">
 
                 <input className="p-3 mt-2 py-3 border-2 border-black w-full" placeholder="image" type="text" name="image" /> <br />
 
@@ -41,7 +41,7 @@ const AddHomeProduct = () => {
 
                 <textarea className="p-3 mt-2 py-3 border-2 border-black w-full" name="description" id="" cols="30" placeholder="description" ></textarea>
 
-                <input className="btn btn-accent w-full space-y-2" type="submit" value="Submit" />
+                <input className="btn bg-[#9d4697] w-full space-y-2" type="submit" value="Submit" />
             </form>
 
         </div>
